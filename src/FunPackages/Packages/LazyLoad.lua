@@ -28,7 +28,15 @@ local function setUpLazyLoad(table, folder)
 		table,
 		{
 			__index = function(t, i)
-				local child = folder[i]
+				local child = folder:FindFirstChild(i)
+
+				Debug.Assert(
+					child,
+					"! %s Folder does have a child named %s",
+					script:GetFullName(),
+					folder.Name,
+					tostring(i)
+				)
 
 				if (child:IsA("ModuleScript")) then
 					local obj = require(child)
