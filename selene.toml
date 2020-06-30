@@ -4,7 +4,7 @@ std = "roblox"
 parenthese_conditions = "allow"
 multiple_statements = "allow"
 global_usage = "allow"
-ignore_pattern = "self"
 
 [config]
 unused_variable = {allow_unused_self = true}
+shadowing = {ignore_pattern = "^self|^_"}
